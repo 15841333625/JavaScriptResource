@@ -59,7 +59,7 @@ ul,ol{list-style: none;}
 }
 /*添加动画效果*/
 .wrapper ul * {
-    transition: all linear 0.2s;
+    transition: all linear 0.2s;  /* 速度过快会出现位移 */
 }
 /*展开效果*/
 .wrapper li.big, li.big a{
