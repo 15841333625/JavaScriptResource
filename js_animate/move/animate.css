@@ -1,0 +1,23 @@
+body,ul,ol,li,p,h1,h2,h3 {
+    margin: 0;
+    padding: 0;
+}
+#hide{
+    position: relative;
+    top: 10px;
+    left: -200px;
+    width: 200px;
+    height: 200px;
+    float: left;
+    background-color: indianred;
+    opacity: 0.4;
+}
+#show{
+    position: absolute;
+    top: 10px;
+    float: left;
+    width: 20px;
+    height: 20px;
+    background-color: #185598;
+    cursor: pointer;
+}
