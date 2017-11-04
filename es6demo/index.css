@@ -1,0 +1,12 @@
+.test {
+	width: 2em;
+	height: 1.5em;
+	line-height: 1.5em;
+	text-align: center;
+	cursor: pointer;
+}
+.main {
+	width: 2em;
+	padding: 0;
+	margin: 2em auto;
+}
