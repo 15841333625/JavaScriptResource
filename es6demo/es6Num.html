@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ES6Number,Array</title>
+  <style>
+    .content {
+      width: 3em;
+      margin: 2em auto;
+      text-align: center;
+    }
+    .box {
+      margin: 1em 0;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+<div class="content">
+  <div class="box">1</div>
+  <div class="box">2</div>
+  <div class="box">3</div>
+  <div class="box">4</div>
+</div>
+<script type="text/javascript">
+  {
+    //Number.isFinite()(是否非无穷) Number.isNaN()
+    console.log("15 is finite: " + Number.isFinite(15));
+    console.log("NaN is finite: " + Number.isFinite(NaN));
+    console.log("9/0 is NaN: " + Number.isNaN(9/0));
+    //es6 把全局方法 parseInt() 和 parseFloat() 移植到了Number 对象上
+    console.log(Number.parseInt('12.32'));
+  }
+  {
+    //Number.isInteger()判断一个值是否为整数，javascript 内部整数和浮点数是同样的储存方法
+    console.log(Number.isInteger(12.5));
+    //javascript 能准确表示的整数范围为-2^(53) - 2^(53)之间(不包含端点)，Number.isSafeInteger()可以判断一个整数是否在这个范围内
+  }
+  {
+    //数组扩展
+    //1.Array.from() 可将类似数组的对象或可遍历的对象转为真正的数组，例如 DOM 操作返回的 NodeList 集合，以及函数内部的 arguments 对象
+    //只有真正的数组才能使用 forEach 方法
+    let box = Array.from(document.querySelectorAll('div'));
+    box.forEach(function(i){
+      console.log(box[i]);
+    });
+    //2.Array.of() 将一组值转化为数组，总是返回参数值组成的数组，没有参数就返回一个空数组
+    console.log(Array.of(3,5,7));
+  }
+</script>
+</body>
+</html>
