@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Index</title>
+  <style>
+    #box {
+      position: relative;
+      width: 500px;
+      height: 300px;
+      margin: 2em auto;
+      border: solid 1px #498ce8;
+      border-radius: 1em;
+      z-index: 1;
+    }
+    #tip {
+      position: absolute;
+      padding: .5em;
+      border-radius: .5em;
+      background-color: rgba(200,200,200,.8);
+      z-index: 2;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+<div id="box">
+  <div id="tip">hello world!</div>
+</div>
+
+<script type="text/javascript">
+  var tip = document.getElementById('tip');
+  box.addEventListener('mousemove',function(){
+    tip.style.display = 'block';
+    var x = event.clientX,                                 //鼠标相对浏览器横坐标
+        y = event.clientY,                                 //鼠标相对浏览器纵坐标
+        offsetX = tip.parentElement.offsetLeft,            //父元素左边距
+        offsetY = tip.parentElement.offsetTop;             //父元素上边距
+        scrolltop = document.documentElement.scrollTop,    //页面上滚动距离
+        scrollleft = document.documentElement.scrollLeft;  //页面左滚动距离
+    tip.style.left = scrollleft + x - offsetX + 'px';
+    tip.style.top = scrolltop + y - offsetY + 'px';
+  })
+  box.addEventListener('mouseout',function(){
+    tip.style.display = 'none';
+    tip.style.left = '0px';
+    tip.style.top = '0px';
+  })
+</script>
+</body>
+</html>
