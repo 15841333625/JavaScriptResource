@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>IFE2017 target2</title>
+    <style>
+        .num {
+            float: left;
+            padding: 0 10px;
+            margin: 10px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            font-weight: 600;
+            border: solid 1px #000;
+            border-radius: 2px;
+            background-color: crimson;
+            cursor: pointer;
+        }
+        .num:hover {
+            background-color: #ffffff;
+            color: crimson;
+        }
+        #data_text {
+            width: 288px;
+        }
+    </style>
+</head>
+<body>
+<!--<input id="num_input" type="text">-->
+<textarea id="data_text" placeholder="请输入文本,不同文本间请用','分隔"></textarea>
+<button id="leftin">左侧入</button>
+<button id="rightin">右侧入</button>
+<button id="leftout">左侧出</button>
+<button id="rightout">右侧出</button>
+<button id="sort">排序</button>
+<input id="ser_input" type="text">
+<button id="search">查找</button>
+<div id="show"></div>
+<script src="../js/target2.js" type="text/javascript"></script>
+</body>
+</html>
