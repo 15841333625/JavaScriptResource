@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>es6箭头函数与this</title>
+</head>
+<ul>
+    <li>箭头函数表达式最适用于非方法函数，并且不能作为构造函数</li>
+    <li>
+        <div>
+         （参数1，参数2，... ）=> {函数声明}//必须使用明确的return语句<br>
+          单一参数 => 表达式（单一）<br>
+          （）=> {函数声明}
+        </div>
+    </li>
+    <li>
+        <div>
+            //加括号的函数体返回对象字面表达式<br>
+            参数 => ({foo: bar})<br>
+            //支持参数列表解构<br>
+        </div>
+    </li>
+    <li>箭头函数没有prototype属性</li>
+    <li>yield关键字不能在箭头函数中使用，箭头函数不能用作生成器</li>
+    <li>箭头函数在参数和箭头之间不能换行</li>
+    <li>参数括号内定义的变量是局部变量，函数体{}内用var定义的变量是局部变量</li>
+</ul>
+
+<body>
+    <script type="text/javascript" charset="utf-8">
+        //箭头函数与包裹它的代码共享相同的this对象，如果箭头函数在其他函数内部，它也将共享该函数的arguments变量
+        function Person(){
+            this.age = 0;
+            setInterval(() => {
+                this.age++;
+                //console.log(this.age);
+            }, 1000);
+        }
+        var p = new Person();
+        
+        //this已经在词法层面完成了绑定，通过call()或apply()方法调用一个函数时，只是传入了参数，对this并没有影响
+        var adder = {
+            base: 1,
+            add: function(a) {
+                var f = v => v +this.base;
+                return f(a);
+            },
+            addTruCall: function(a) {
+                var f = v => v + this.base;
+                var b = {
+                    base : 2
+                };
+                return f.call(b, a);
+            }
+        }
+        
+        console.log(adder.add(1));
+        console.log(adder.addTruCall(1));
+        
+        //空的箭头函数返回 undefined
+        let empty = () => {};
+        //returns "foobar"
+        (() => 'foobar')();
+        
+        var arr = [5, 10, 6, 0, 1];
+        var sum = arr.reduce((a, b) => a + b); //22
+        var even = arr.filter(v => v % 2 == 0); //[10, 6, 0]
+        
+        //箭头函数递归
+        var fact = (x) => (x == 0 ? 1 : x * fact(x - 1));
+        console.log(fact(5)); //120
+    </script>
+</body>
+</html>
