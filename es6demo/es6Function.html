@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ES6Function</title>
+</head>
+<body>
+<script type="text/javascript">
+  {
+    //es6 允许为函数参数设置默认值
+    function log(x, y = 'World'){
+      console.log(x, y);
+    }
+    log('Hello');
+    //与解构赋值默认值结合使用
+    function foo({x, y = 5}){
+      console.log(x, y);
+    }
+    foo({});
+    foo({x:1});
+    foo({x:1, y:2})
+  }
+  //es5
+//  function log(x, y){
+//    if(typeof(y) === 'undefined'){
+//      y = 'World';
+//    }
+//    console.log(x, y);
+//  }
+//  log('Hello');
+//  log('Hello', '');
+</script>
+</body>
+</html>
